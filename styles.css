@@ -1,0 +1,24 @@
+/* reset browser styles */
+*,
+*::before, 
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+button {
+  border: 0;
+  outline: 0;
+}
+/* general styles */
+body {
+  height: 100vh;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main .editor {
+  background:#191919; 
+  height: 100vw;
+}
