@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./prism/prism-dark.css">
   <link rel="stylesheet" href="styles.css">
   <title>Picode</title>
 </head>
@@ -10,12 +11,25 @@
   <main>
     <div class="editor">
       <form action="">
-
       </form>
     </div>
-    <div class="picture">
-      <textarea id="snippet"></textarea>    
+    <div class="preview">
+      <div class="background">
+        <div class="snippet">
+          <div class="snippet-header">
+            <div class="decorations">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <input type="text" class="snippet-title">
+          </div>  
+          <textarea class="snippet-content" id="snippet-content" wrap="off" rows="1"></textarea>
+        </div>
+      </div> 
     </div>
   </main> 
+  <script src="./prism/prism.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
