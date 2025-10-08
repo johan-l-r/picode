@@ -29,6 +29,7 @@ main {
   z-index: 2;
 }
 .preview {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,5 +91,9 @@ main {
   font-size: 1.5rem;
   padding: 2rem;
   width: 100%;
-
+}
+.zoom-level {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
 }

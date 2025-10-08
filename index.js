@@ -1,10 +1,13 @@
 let position = { x: 0, y: 0 };
+let zoomLevel = 1;
 
-const STEP = 50;
+const STEP = 20;
+const ZOOM_INCREMENT = 0.1;
 
 const preview = document.getElementById("preview")
 const snippet = document.getElementById("snippet");
 const snippetContent = document.getElementById("snippet-content");
+const zoomController = document.getElementById("zoom-level");
 
 // Restore saved size on page load
 const savedHeight = localStorage.getItem("snippet-content-height");
@@ -28,17 +31,25 @@ snippetContent.addEventListener("input", e => {
   localStorage.setItem("snippet-content-height", snippetContent.style.height);
 });
 
+// mapping  and zooming 
 preview.addEventListener("wheel", e => {
   let direction = Math.sign(-e.deltaY);
   let distance = STEP * direction;
 
   e.preventDefault();
 
-  if(e.shiftKey) {
-    position.x += distance;
+  if(e.ctrlKey && !e.shiftKey) {
+    zoomLevel += ZOOM_INCREMENT * direction;
+    zoomLevel = Math.min(Math.max(zoomLevel, 0.2), 2.5);
+  } else if(e.shiftKey) {
+    position.x += distance; 
   } else {
     position.y += distance;
   }
 
-  snippet.style.transform = `translate(${position.x}px, ${position.y}px)`
+  updateTransform();
 });
+
+function updateTransform() {
+  snippet.style.transform = `translate(${position.x}px, ${position.y}px) scale(${zoomLevel})`;
+}
