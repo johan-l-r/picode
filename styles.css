@@ -26,6 +26,7 @@ main {
 }
 .editor {
   background: #191919;
+  z-index: 2;
 }
 .preview {
   display: flex;
