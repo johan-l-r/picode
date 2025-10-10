@@ -9,7 +9,14 @@
 <body>
   <main>
     <div class="editor">
-      <form action="">
+      <form id="editor">
+        <fieldset>
+          <legend>padding</legend>
+          <label for="padding-block">top/bottom</label>
+          <label for="padding-inline">left/right</label>
+          <input type="text" id="padding-block" data-style="padding-block">
+          <input type="text" id="padding-inline" data-style="padding-inline">
+        </fieldset>
       </form>
     </div>
     <div class="preview" id="preview">
@@ -26,7 +33,6 @@
           <textarea class="snippet-content" id="snippet-content" wrap="off" rows="1"></textarea>
         </div>
       </div> 
-      <input class="zoom-level" id="zoom-level"type="range" min="1" max="9">
     </div>
   </main> 
   <script src="index.js"></script>

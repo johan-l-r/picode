@@ -8,6 +8,7 @@ const preview = document.getElementById("preview")
 const snippet = document.getElementById("snippet");
 const snippetContent = document.getElementById("snippet-content");
 const zoomController = document.getElementById("zoom-level");
+const editor = document.getElementById("editor");
 
 // Restore saved size on page load
 const savedHeight = localStorage.getItem("snippet-content-height");
@@ -53,3 +54,11 @@ preview.addEventListener("wheel", e => {
 function updateTransform() {
   snippet.style.transform = `translate(${position.x}px, ${position.y}px) scale(${zoomLevel})`;
 }
+
+editor.addEventListener("input", e => {
+  const style = e.target; // get the changed element
+  const property = style.getAttribute("data-style")
+
+  if(!style.hasAttribute("data-style")) return;
+  snippet.style[property] = style.value;
+});
